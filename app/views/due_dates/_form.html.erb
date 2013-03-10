@@ -1,0 +1,37 @@
+<%= form_for(@due_date) do |f| %>
+  <% if @due_date.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@due_date.errors.count, "error") %> prohibited this due_date from being saved:</h2>
+
+      <ul>
+      <% @due_date.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :start %><br />
+    <%= f.date_select :start %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br />
+    <%= f.collection_check_boxes :tags, %w[CAT Payroll Sales School City State Federal], :to_s, :to_s %>
+  </div>
+  <div class="field">
+    <%= f.label :frequency %><br />
+    <%= f.collection_select :frequency, %w[Daily Weekly Monthly Quarterly Annualy], :to_s, :to_s  %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<h1>Listing due_dates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start</th>
+      <th>Tags</th>
+      <th>Frequency</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @due_dates.each do |due_date| %>
+    <tr>
+      <td><%= due_date.name %></td>
+      <td><%= due_date.start %></td>
+      <td><%= due_date.tags %></td>
+      <td><%= due_date.frequency %></td>
+      <td><%= link_to 'Show', due_date %></td>
+      <td><%= link_to 'Edit', edit_due_date_path(due_date) %></td>
+      <td><%= link_to 'Destroy', due_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Due date', new_due_date_path %>
