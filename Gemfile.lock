@@ -60,6 +60,7 @@ GEM
     neat (1.2.0)
       bourbon (>= 2.1)
       sass (>= 3.2)
+    newrelic_rpm (3.5.8.72)
     pg (0.14.1)
     polyglot (0.3.3)
     rack (1.5.2)
@@ -124,6 +125,7 @@ DEPENDENCIES
   jbuilder (~> 1.0.1)
   jquery-rails
   neat
+  newrelic_rpm
   pg
   rails (= 4.0.0.beta1)
   sass-rails (~> 4.0.0.beta1)
