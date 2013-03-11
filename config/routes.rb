@@ -1,6 +1,4 @@
-Tasx::Application.routes.draw do
-  resources :due_dates
-  get '/loaderio-043cb3521a2c0444f93fa383ee8a6027' => "static#loader_io"
+Tasx::Application.routes.draw do  get '/loaderio-043cb3521a2c0444f93fa383ee8a6027' => "static#loader_io"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
