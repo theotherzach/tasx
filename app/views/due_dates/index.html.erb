@@ -1,0 +1,10 @@
+<h1>Dates</h1>
+<ul>
+  <% @due_dates.each do |date| %>
+    <li><%= date.name %> - <%= date.next %></li>
+    <ul>
+      <li>Bob's Bobbers</li>
+      <li>Mike's Box</li>
+    </ul>
+  <% end %>
+</ul>
