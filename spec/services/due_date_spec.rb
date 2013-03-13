@@ -29,13 +29,32 @@ describe DueDate do
     expect(date.next).to eq Date.parse("2013-06-16")
   end
 
-  it "pukes if frequency isn't weekly, monthly, quarterly, or annual"
+  it "quarterly" do
+    date = DueDate.new(name: "Monthly Sales", frequency: :quarterly, recur_on: [1, 15])
+    expect(date.next).to eq Date.parse("2013-04-15")
+  end
 
-  context "next date" do
-    it "is in the future"
-    context "falls on weekend or holiday" do
-      it "last business day before for school districts"
-      it "next buisiness day for federal, state, and city"
-    end
+  it "weekly" do
+    date = DueDate.new(name: "Monthly Sales", frequency: :weekly, recur_on: [4])
+    expect(date.next).to eq Date.parse("2013-03-14")
+  end
+
+  it "pukes if frequency isn't weekly, monthly, quarterly, or annual" do
+    expect do
+      date = DueDate.new name: "Haxxorz", frequency: :call, recur_on: [0]
+      date.next
+    end.to raise_error DueDate::UnknownFrequency
+  end
+
+  it "pukes if recur_on isn't an int and of proper size" do
+    expect do
+      date = DueDate.new name: "Haxxorz", frequency: :quarterly, recur_on: ["0"]
+      date.next
+    end.to raise_error DueDate::BadRecur
+  end
+
+  context "falls on weekend or holiday" do
+    it "last business day before for school districts"
+    it "next buisiness day for federal, state, and city"
   end
 end
