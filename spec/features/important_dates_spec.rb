@@ -19,4 +19,13 @@ feature 'Important dates' do
     expect(page).to have_content("Bob's Bobbers")
     expect(page).to have_content("Mike's Box")
   end
+
+  scenario "creates new dates" do
+    visit '/dates/new'
+    # click_button 'new date'
+  end
+
+  scenario "adds clients to dates"
+  scenario "removes clients from dates"
+  scenario "deletes dates"
 end

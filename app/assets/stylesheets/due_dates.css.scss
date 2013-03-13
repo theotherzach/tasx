@@ -1,0 +1,12 @@
+section.app {
+  @include outer-container;
+
+
+  aside {
+    @include span-columns(4);
+}
+
+content {
+  @include span-columns(8);
+}
+}
