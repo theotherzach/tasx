@@ -1,7 +1,7 @@
 <h1>Dates</h1>
 <ul>
   <% @due_dates.each do |date| %>
-    <li><%= date.name %> - <%= date.next %></li>
+    <li><%= date.name %> - <%= date.next.strftime("%m-%d-%Y") %></li>
     <ul>
       <li>Bob's Bobbers</li>
       <li>Mike's Box</li>
